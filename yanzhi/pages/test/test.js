@@ -14,7 +14,7 @@ Page({
     // 测试状态
     currentQuestion: 1,
     questionIndex: 1,
-    totalQuestions: 61,
+    totalQuestions: 54,
     answers: [],
     question: "",
     currentAnswer: null,
