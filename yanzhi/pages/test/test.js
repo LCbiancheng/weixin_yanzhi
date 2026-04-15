@@ -25,6 +25,13 @@ Page({
     slideDirection: "",
     isAnimating: false,
     
+    // 嘲笑框相关
+    showMockModal: false,
+    mockText: "",
+    
+    // 嘲笑题目配置
+    mockQuestions: {}
+    
     // 结果数据
     result: {}
   },
@@ -37,11 +44,54 @@ Page({
       options: sbtiData.options,
       results: sbtiData.results,
       totalQuestions: sbtiData.questions.length,
-      answers: new Array(sbtiData.questions.length).fill(null)
+      answers: new Array(sbtiData.questions.length).fill(null),
+      mockQuestions: this.getMockQuestions()
     });
     
     // 初始化测试
     this.initTest();
+  },
+
+  // 获取嘲笑题目配置
+  getMockQuestions: function() {
+    return {
+      3: { // 第4题：实验室的咖啡机是我最好的朋友
+        triggerAnswers: [1, 2], // 中立、不认同
+        mockText: "该不会实验室连咖啡机都没有吧"
+      },
+      9: { // 第10题：健身房是我的第二实验室
+        triggerAnswers: [1, 2], // 中立、不认同
+        mockText: "该不会你连健身房都没去过吧"
+      },
+      12: { // 第13题：我的体脂率比论文查重率更重要
+        triggerAnswers: [1, 2], // 中立、不认同
+        mockText: "看来你更关心论文啊"
+      },
+      27: { // 第28题：我觉得读研后发量明显减少
+        triggerAnswers: [0], // 认同
+        mockText: "该不会你已经秃了吧"
+      },
+      51: { // 第52题：我曾因为实验失败而崩溃
+        triggerAnswers: [2], // 不认同
+        mockText: "该不会你还没做过实验吧"
+      },
+      59: { // 第60题：我觉得研究生恋爱是奢侈品
+        triggerAnswers: [2], // 不认同
+        mockText: "该不会你已经有对象了吧"
+      },
+      64: { // 第65题：我觉得组会就是大型表演现场
+        triggerAnswers: [2], // 不认同
+        mockText: "该不会你组会从不摸鱼吧"
+      },
+      54: { // 第55题：我曾为了逃避科研而疯狂做家务
+        triggerAnswers: [2], // 不认同
+        mockText: "该不会你真的热爱科研吧"
+      },
+      63: { // 第64题：我的电脑桌面堆满了永远不看的文献
+        triggerAnswers: [2], // 不认同
+        mockText: "该不会你每篇文献都认真看了吧"
+      }
+    };
   },
 
   // 获取测试数据
@@ -225,6 +275,28 @@ Page({
     
     this.updateProgressBar();
     this.updateNavigationButtons();
+    
+    // 检查是否需要显示嘲笑框
+    this.checkAndShowMock(currentIndex, optionIndex);
+  },
+
+  // 检查并显示嘲笑框
+  checkAndShowMock: function(questionIndex, answerIndex) {
+    const mockConfig = this.data.mockQuestions[questionIndex];
+    if (mockConfig && mockConfig.triggerAnswers.includes(answerIndex)) {
+      this.setData({
+        showMockModal: true,
+        mockText: mockConfig.mockText
+      });
+    }
+  },
+
+  // 关闭嘲笑框
+  closeMockModal: function() {
+    this.setData({
+      showMockModal: false,
+      mockText: ""
+    });
   },
 
   // 更新进度条

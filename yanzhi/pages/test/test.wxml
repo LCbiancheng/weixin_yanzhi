@@ -155,6 +155,15 @@
     </view>
   </view>
 
+  <!-- 嘲笑框 -->
+  <view class="mock-modal" wx:if="{{showMockModal}}" bindtap="closeMockModal">
+    <view class="mock-content" catchtap="">
+      <view class="mock-emoji">😏</view>
+      <text class="mock-text">{{mockText}}</text>
+      <button class="mock-btn" bindtap="closeMockModal">知道了</button>
+    </view>
+  </view>
+
   <!-- 页脚 -->
   <view class="footer" wx:if="{{!showResult}}">
     <text class="footer-text">本测试基于真实研究生生活设计，仅供娱乐使用。</text>
