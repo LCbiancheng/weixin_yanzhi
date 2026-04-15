@@ -56,40 +56,148 @@ Page({
   getMockQuestions: function() {
     return {
       3: { // 第4题：实验室的咖啡机是我最好的朋友
-        triggerAnswers: [1, 2], // 中立、不认同
-        mockText: "该不会实验室连咖啡机都没有吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你真的天天靠咖啡续命吧",
+          1: "该不会你偶尔也需要咖啡吧",
+          2: "该不会实验室连咖啡机都没有吧"
+        }
       },
       9: { // 第10题：健身房是我的第二实验室
-        triggerAnswers: [1, 2], // 中立、不认同
-        mockText: "该不会你连健身房都没去过吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你真的把健身房当家了吧",
+          1: "该不会你偶尔也去吧",
+          2: "该不会你连健身房都没去过吧"
+        }
       },
       12: { // 第13题：我的体脂率比论文查重率更重要
-        triggerAnswers: [1, 2], // 中立、不认同
-        mockText: "看来你更关心论文啊"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你真的更关心体脂率吧",
+          1: "看来你两者都关心啊",
+          2: "看来你更关心论文啊"
+        }
       },
       27: { // 第28题：我觉得读研后发量明显减少
-        triggerAnswers: [0], // 认同
-        mockText: "该不会你已经秃了吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你已经秃了吧",
+          1: "该不会你正在秃的路上吧",
+          2: "该不会你发量还很多吧，炫耀呢"
+        }
       },
       51: { // 第52题：我曾因为实验失败而崩溃
-        triggerAnswers: [2], // 不认同
-        mockText: "该不会你还没做过实验吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你经常崩溃吧",
+          1: "该不会你偶尔也崩溃过吧",
+          2: "该不会你还没做过实验吧"
+        }
       },
       59: { // 第60题：我觉得研究生恋爱是奢侈品
-        triggerAnswers: [2], // 不认同
-        mockText: "该不会你已经有对象了吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你连对象都没有吧",
+          1: "该不会你正在找对象吧",
+          2: "该不会你已经有对象了吧，炫耀呢"
+        }
       },
       64: { // 第65题：我觉得组会就是大型表演现场
-        triggerAnswers: [2], // 不认同
-        mockText: "该不会你组会从不摸鱼吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你就是表演者吧",
+          1: "该不会你偶尔也表演一下吧",
+          2: "该不会你组会从不摸鱼吧"
+        }
       },
       54: { // 第55题：我曾为了逃避科研而疯狂做家务
-        triggerAnswers: [2], // 不认同
-        mockText: "该不会你真的热爱科研吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你经常靠做家务逃避吧",
+          1: "该不会你偶尔也这样吧",
+          2: "该不会你真的热爱科研吧"
+        }
       },
       63: { // 第64题：我的电脑桌面堆满了永远不看的文献
-        triggerAnswers: [2], // 不认同
-        mockText: "该不会你每篇文献都认真看了吧"
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你就是这样吧",
+          1: "该不会你偶尔也堆几篇吧",
+          2: "该不会你每篇文献都认真看了吧"
+        }
+      },
+      0: { // 第1题：我在deadline前效率最高
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你就是传说中的ddl战士吧",
+          1: "该不会你偶尔也这样吧",
+          2: "该不会你从来不拖到最后吧"
+        }
+      },
+      4: { // 第5题：我曾因为论文熬夜到凌晨
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你经常熬夜吧",
+          1: "该不会你偶尔也熬过夜吧",
+          2: "该不会你从来不熬夜吧，太自律了"
+        }
+      },
+      5: { // 第6题：我觉得学术会议就是公费旅游
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你就是这么想的吧",
+          1: "该不会你偶尔也这么觉得吧",
+          2: "该不会你真的是去学习的吧"
+        }
+      },
+      72: { // 第73题：我对'非升即走'感到恐慌
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你已经开始恐慌了吧",
+          1: "该不会你偶尔也想想吧",
+          2: "该不会你这么自信能留下吧"
+        }
+      },
+      45: { // 第46题：我对学术圈的黑话越来越熟悉
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你已经是老油条了吧",
+          1: "该不会你正在学习中吧",
+          2: "该不会你还听不懂黑话吧"
+        }
+      },
+      48: { // 第49题：我觉得研究生的快乐很简单：数据好看、论文录用
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你就是这么容易满足吧",
+          1: "该不会你偶尔也这么觉得吧",
+          2: "该不会你有更高追求吧"
+        }
+      },
+      52: { // 第53题：我对'内卷'深有体会
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你就是卷王吧",
+          1: "该不会你偶尔也卷一下吧",
+          2: "该不会你们实验室不卷吧"
+        }
+      },
+      57: { // 第58题：我对'博士'二字既向往又恐惧
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你正在纠结吧",
+          1: "该不会你偶尔也想想吧",
+          2: "该不会你这么确定读博吧"
+        }
+      },
+      60: { // 第61题：我觉得学术成果和运气有很大关系
+        triggerAnswers: [0, 1, 2], // 所有答案都嘲笑
+        mockTextByAnswer: {
+          0: "该不会你已经认命了吧",
+          1: "该不会你偶尔也这么觉得吧",
+          2: "该不会你这么相信实力吧"
+        }
       }
     };
   },
@@ -284,10 +392,18 @@ Page({
   checkAndShowMock: function(questionIndex, answerIndex) {
     const mockConfig = this.data.mockQuestions[questionIndex];
     if (mockConfig && mockConfig.triggerAnswers.includes(answerIndex)) {
-      this.setData({
-        showMockModal: true,
-        mockText: mockConfig.mockText
-      });
+      let mockText = "";
+      if (mockConfig.mockTextByAnswer) {
+        mockText = mockConfig.mockTextByAnswer[answerIndex];
+      } else if (mockConfig.mockText) {
+        mockText = mockConfig.mockText;
+      }
+      if (mockText) {
+        this.setData({
+          showMockModal: true,
+          mockText: mockText
+        });
+      }
     }
   },
 
