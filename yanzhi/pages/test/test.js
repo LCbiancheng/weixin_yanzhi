@@ -22,6 +22,8 @@ Page({
     isLastQuestion: false,
     showResult: false,
     progressPercent: 0,
+    slideDirection: "",
+    isAnimating: false,
     
     // 结果数据
     result: {}
@@ -242,26 +244,56 @@ Page({
     });
   },
 
-  // 上一题
+  // 上一题（带右滑动画）
   prevQuestion: function() {
-    if (this.data.currentQuestion > 1) {
+    if (this.data.currentQuestion > 1 && !this.data.isAnimating) {
       this.setData({
-        currentQuestion: this.data.currentQuestion - 1,
-        showResult: false
+        isAnimating: true,
+        slideDirection: "slide-right-exit"
       });
-      this.loadQuestion();
-      this.updateProgressBar();
+
+      setTimeout(() => {
+        this.setData({
+          currentQuestion: this.data.currentQuestion - 1,
+          showResult: false,
+          slideDirection: "slide-right-enter"
+        });
+        this.loadQuestion();
+        this.updateProgressBar();
+
+        setTimeout(() => {
+          this.setData({
+            slideDirection: "slide-right-enter-active",
+            isAnimating: false
+          });
+        }, 50);
+      }, 200);
     }
   },
 
-  // 下一题
+  // 下一题（带左滑动画）
   nextQuestion: function() {
-    if (this.data.currentQuestion < this.data.totalQuestions) {
+    if (this.data.currentQuestion < this.data.totalQuestions && !this.data.isAnimating) {
       this.setData({
-        currentQuestion: this.data.currentQuestion + 1
+        isAnimating: true,
+        slideDirection: "slide-left-exit"
       });
-      this.loadQuestion();
-      this.updateProgressBar();
+
+      setTimeout(() => {
+        this.setData({
+          currentQuestion: this.data.currentQuestion + 1,
+          slideDirection: "slide-left-enter"
+        });
+        this.loadQuestion();
+        this.updateProgressBar();
+
+        setTimeout(() => {
+          this.setData({
+            slideDirection: "slide-left-enter-active",
+            isAnimating: false
+          });
+        }, 50);
+      }, 200);
     }
   },
 

@@ -5,13 +5,17 @@ page {
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
-  padding: 20rpx;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
+  width: 100%;
   max-width: 1000rpx;
-  margin: 0 auto;
-  padding: 30rpx;
+  margin: 0;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
 }
 
 /* 头部样式 */
@@ -91,6 +95,12 @@ page {
   font-weight: 500;
 }
 
+/* 题目卡片容器 */
+.question-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
 /* 题目卡片 */
 .question-card {
   background: #f9f9ff;
@@ -99,6 +109,57 @@ page {
   box-shadow: 0 10rpx 30rpx rgba(74, 111, 165, 0.1);
   border: 2rpx solid #e8e3ff;
   margin-bottom: 30rpx;
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 左滑动画（下一题） */
+.question-card.slide-left-exit {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.question-card.slide-left-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.question-card.slide-left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 右滑动画（上一题） */
+.question-card.slide-right-exit {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.question-card.slide-right-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.question-card.slide-right-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 淡入淡出动画 */
+.question-card.fade-exit {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.question-card.fade-enter {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.question-card.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .question-header {

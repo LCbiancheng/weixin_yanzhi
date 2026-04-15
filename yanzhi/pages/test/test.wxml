@@ -22,48 +22,50 @@
   </view>
 
   <!-- 题目卡片 -->
-  <view class="question-card" wx:if="{{!showResult}}">
-    <view class="question-header">
-      <text class="question-text">{{question}}</text>
-      <view class="question-number">第 {{questionIndex}} 题</view>
-    </view>
-    
-    <view class="options-container">
-      <view 
-        wx:for="{{options}}" 
-        wx:key="index" 
-        class="option {{currentAnswer === index ? 'selected' : ''}}"
-        bindtap="selectOption"
-        data-index="{{index}}"
-      >
-        {{item}}
+  <view class="question-wrapper" wx:if="{{!showResult}}">
+    <view class="question-card {{slideDirection}}">
+      <view class="question-header">
+        <text class="question-text">{{question}}</text>
+        <view class="question-number">第 {{questionIndex}} 题</view>
       </view>
-    </view>
+      
+      <view class="options-container">
+        <view 
+          wx:for="{{options}}" 
+          wx:key="index" 
+          class="option {{currentAnswer === index ? 'selected' : ''}}"
+          bindtap="selectOption"
+          data-index="{{index}}"
+        >
+          {{item}}
+        </view>
+      </view>
 
-    <view class="navigation">
-      <button 
-        class="btn btn-prev" 
-        disabled="{{currentQuestion === 1}}"
-        bindtap="prevQuestion"
-      >
-        <text class="icon">←</text> 上一题
-      </button>
-      <button 
-        wx:if="{{!isLastQuestion}}"
-        class="btn btn-next" 
-        disabled="{{!hasAnswer}}"
-        bindtap="nextQuestion"
-      >
-        下一题 <text class="icon">→</text>
-      </button>
-      <button 
-        wx:else
-        class="btn btn-submit" 
-        disabled="{{!hasAnswer}}"
-        bindtap="submitTest"
-      >
-        查看结果
-      </button>
+      <view class="navigation">
+        <button 
+          class="btn btn-prev" 
+          disabled="{{currentQuestion === 1}}"
+          bindtap="prevQuestion"
+        >
+          <text class="icon">←</text> 上一题
+        </button>
+        <button 
+          wx:if="{{!isLastQuestion}}"
+          class="btn btn-next" 
+          disabled="{{!hasAnswer}}"
+          bindtap="nextQuestion"
+        >
+          下一题 <text class="icon">→</text>
+        </button>
+        <button 
+          wx:else
+          class="btn btn-submit" 
+          disabled="{{!hasAnswer}}"
+          bindtap="submitTest"
+        >
+          查看结果
+        </button>
+      </view>
     </view>
   </view>
 
