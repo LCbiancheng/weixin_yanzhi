@@ -9,7 +9,7 @@
     <text class="subtitle">Research Personality Test</text>
     <text class="description">基于真实研究生生活，61道趣味题目</text>
     <view class="disclaimer">
-      <text>⚠️ 声明：本测试只是在玩梗，不是真的，请不要当真！</text>
+      <text>⚠️ 声明：本测试仅供娱乐使用，请勿当真！</text>
     </view>
   </view>
 
@@ -78,8 +78,8 @@
       </view>
       <text class="info-text">本测试包含61道题目，答案选项为认同、中立、不认同。请根据你的真实感受选择，测试结果仅供娱乐。</text>
       <view class="info-disclaimer">
-        <text>⚠️ 声明：本测试只是在玩梗，不是真的，请不要当真！</text>
-      </view>
+          <text>⚠️ 声明：本测试仅供娱乐使用，请勿当真！</text>
+        </view>
     </view>
     <view class="info-box">
       <view class="info-title">
@@ -99,7 +99,7 @@
       <text class="result-description">{{result.description}}</text>
       
       <view class="result-disclaimer">
-        <text>⚠️ 声明：本测试只是在玩梗，不是真的，请不要当真！</text>
+        <text>⚠️ 声明：本测试仅供娱乐使用，请勿当真！</text>
       </view>
       
       <view class="result-details">

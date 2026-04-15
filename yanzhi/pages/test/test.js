@@ -6,9 +6,9 @@ Page({
     options: ["认同", "中立", "不认同"],
     results: [],
     resultTags: [
-      "酒蒙子", "健身家", "Academic Garbage Producer", 
-      "内卷家", "摸鱼大师", "社交牛逼症", 
-      "数据造假者", "导师的马屁精"
+      "小酌爱好者", "健身家", "高产学者", 
+      "努力达人", "休闲大师", "社交达人", 
+      "数据美化师", "导师的贴心助手"
     ],
     
     // 测试状态
@@ -126,8 +126,8 @@ Page({
       
       results: [
         {
-          type: "酒蒙子",
-          description: "您是实验室的酒蒙子，擅长用酒精缓解科研压力。课题组聚会您永远是气氛担当，但第二天早上可能会后悔。",
+          type: "小酌爱好者",
+          description: "您是实验室的小酌爱好者，擅长在适当的时候放松自己。课题组聚会您永远是气氛担当，懂得劳逸结合。",
           academicPower: 60,
           stressResistance: 85,
           memeSkill: 90
@@ -140,43 +140,43 @@ Page({
           memeSkill: 70
         },
         {
-          type: "Academic Garbage Producer",
-          description: "您是高效的学术垃圾制造者，擅长生产低质量但数量可观的论文。您的目标是：不追求质量，只追求发表。",
+          type: "高产学者",
+          description: "您是高效的高产学者，擅长快速产出研究成果。您的目标是：在保证质量的前提下，稳步推进科研进度。",
           academicPower: 70,
           stressResistance: 80,
           memeSkill: 85
         },
         {
-          type: "内卷家",
-          description: "您是资深的内卷家，不仅自己拼命，还带动全组内卷。您的存在让同门压力倍增，是课题组的'卷王之王'。",
+          type: "努力达人",
+          description: "您是资深的努力达人，不仅自己认真，还带动全组进步。您的存在让课题组充满正能量，是大家的榜样。",
           academicPower: 90,
           stressResistance: 75,
           memeSkill: 65
         },
         {
-          type: "摸鱼大师",
-          description: "您是专业的摸鱼大师，摸鱼技巧登峰造极。看起来在认真科研，实际上在刷剧打游戏，是时间管理大师。",
+          type: "休闲大师",
+          description: "您是专业的休闲大师，懂得在紧张的科研中适当放松。看起来在认真工作，实则张弛有度，是时间管理大师。",
           academicPower: 50,
           stressResistance: 90,
           memeSkill: 95
         },
         {
-          type: "社交牛逼症",
-          description: "您患有严重的社交牛逼症，实验室内外都是您的舞台。认识所有楼层的同学，连保洁阿姨都是您的好友。",
+          type: "社交达人",
+          description: "您是优秀的社交达人，实验室内外都能轻松交流。认识所有楼层的同学，连保洁阿姨都是您的好友。",
           academicPower: 65,
           stressResistance: 85,
           memeSkill: 88
         },
         {
-          type: "数据造假者",
-          description: "您是优雅的数据造假者（开玩笑的），擅长让数据'更美观'。您的实验记录本充满了'创造性'的调整。",
+          type: "数据美化师",
+          description: "您是优雅的数据处理专家，擅长让数据展示得更清晰。您的实验记录本充满了巧妙的可视化设计。",
           academicPower: 80,
           stressResistance: 70,
           memeSkill: 82
         },
         {
-          type: "导师的马屁精",
-          description: "您是导师的专属马屁精，深谙拍马之道。您的赞美让导师心花怒放，是同门中的'情商担当'。",
+          type: "导师的贴心助手",
+          description: "您是导师的贴心助手，深谙沟通之道。您的赞美让导师心情愉悦，是同门中的'情商担当'。",
           academicPower: 70,
           stressResistance: 88,
           memeSkill: 75
@@ -271,7 +271,7 @@ Page({
     }
   },
 
-  // 下一题（带左滑动画）
+  // 下一题（当前题向左滑出，下题从右边滑入）
   nextQuestion: function() {
     if (this.data.currentQuestion < this.data.totalQuestions && !this.data.isAnimating) {
       this.setData({
@@ -282,14 +282,14 @@ Page({
       setTimeout(() => {
         this.setData({
           currentQuestion: this.data.currentQuestion + 1,
-          slideDirection: "slide-left-enter"
+          slideDirection: "slide-right-enter"
         });
         this.loadQuestion();
         this.updateProgressBar();
 
         setTimeout(() => {
           this.setData({
-            slideDirection: "slide-left-enter-active",
+            slideDirection: "slide-right-enter-active",
             isAnimating: false
           });
         }, 50);
