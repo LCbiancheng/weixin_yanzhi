@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/test/test"
+  ],
+  "window": {
+    "navigationBarTitleText": "研值人格测试",
+    "navigationBarBackgroundColor": "#4A6FA5",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7fa",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

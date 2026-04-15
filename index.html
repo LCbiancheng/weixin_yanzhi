@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研值人格测试 - 研究生专属MBTI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>研值人格测试</h1>
+            </div>
+            <p class="subtitle">Research Personality Test · 研究生专属MBTI</p>
+            <p class="description">基于真实研究生生活的人格测试，61道趣味题目，测出你的学术人格类型</p>
+            <p class="disclaimer">⚠️ 声明：本测试只是在玩梗，不是真的，请不要当真！</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text">进度: <span id="currentQuestion">1</span>/<span id="totalQuestions">61</span></div>
+        </div>
+
+        <main class="test-container">
+            <div class="question-card">
+                <div class="question-header">
+                    <h2 id="questionText">题目加载中...</h2>
+                    <div class="question-number">第 <span id="questionIndex">1</span> 题</div>
+                </div>
+                
+                <div class="options-container" id="optionsContainer">
+                    <!-- 选项将通过JS动态生成 -->
+                </div>
+
+                <div class="navigation">
+                    <button class="btn btn-prev" id="prevBtn" disabled>
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-next" id="nextBtn">
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-submit" id="submitBtn" style="display: none;">
+                        <i class="fas fa-paper-plane"></i> 查看结果
+                    </button>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-box">
+                    <h3><i class="fas fa-lightbulb"></i> 测试说明</h3>
+                    <p>本测试包含61道研究生专属题目，答案选项为<strong>认同</strong>、<strong>中立</strong>、<strong>不认同</strong>。请根据你的真实感受选择，测试结果仅供娱乐。</p>
+                    <p><strong>⚠️ 声明：本测试只是在玩梗，不是真的，请不要当真！</strong></p>
+                </div>
+                <div class="info-box">
+                    <h3><i class="fas fa-tags"></i> 可能的结果标签</h3>
+                    <div class="tags">
+                        <span class="tag">酒蒙子</span>
+                        <span class="tag">健身家</span>
+                        <span class="tag">Academic Garbage Producer</span>
+                        <span class="tag">内卷家</span>
+                        <span class="tag">摸鱼大师</span>
+                        <span class="tag">社交牛逼症</span>
+                        <span class="tag">数据优化大师</span>
+                        <span class="tag">导师的马屁精</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>本测试基于真实研究生生活设计，内容幽默自嘲，仅供娱乐使用。</p>
+            <p class="copyright">© 2025 研值人格测试 | 数据来源: 研究生日常观察</p>
+        </footer>
+    </div>
+
+    <!-- 结果弹窗 -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-award"></i> 你的研值人格类型是</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="result-type" id="resultType">酒蒙子</div>
+                <div class="result-description" id="resultDescription">
+                    您是实验室的酒蒙子，擅长用酒精缓解科研压力。课题组聚会您永远是气氛担当，但第二天早上可能会后悔。
+                </div>
+                <div class="result-disclaimer">
+                    <p><strong>⚠️ 声明：本测试只是在玩梗，不是真的，请不要当真！</strong></p>
+                </div>
+                <div class="result-details">
+                    <h3><i class="fas fa-chart-bar"></i> 维度分析</h3>
+                    <div class="dimensions">
+                        <div class="dimension">
+                            <span class="dim-label">学术力</span>
+                            <div class="dim-bar"><div class="dim-fill" style="width: 60%"></div></div>
+                            <span class="dim-value">60%</span>
+                        </div>
+                        <div class="dimension">
+                            <span class="dim-label">抗压力</span>
+                            <div class="dim-bar"><div class="dim-fill" style="width: 85%"></div></div>
+                            <span class="dim-value">85%</span>
+                        </div>
+                        <div class="dimension">
+                            <span class="dim-label">玩梗力</span>
+                            <div class="dim-bar"><div class="dim-fill" style="width: 90%"></div></div>
+                            <span class="dim-value">90%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="share-section">
+                    <h3><i class="fas fa-share-alt"></i> 分享结果</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn wechat"><i class="fab fa-weixin"></i> 微信</button>
+                        <button class="share-btn weibo"><i class="fab fa-weibo"></i> 微博</button>
+                        <button class="share-btn copy"><i class="fas fa-copy"></i> 复制链接</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-retake" id="retakeBtn">
+                    <i class="fas fa-redo"></i> 重新测试
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

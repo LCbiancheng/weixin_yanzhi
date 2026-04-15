@@ -1,0 +1,62 @@
+/* app.wxss */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* 通用样式 */
+.container {
+  max-width: 1000rpx;
+  margin: 0 auto;
+  padding: 30rpx;
+}
+
+/* 按钮样式 */
+.btn {
+  padding: 28rpx 56rpx;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rpx;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #4A6FA5, #3d5a80);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+/* 卡片样式 */
+.card {
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-shadow: 0 5rpx 15rpx rgba(0, 0, 0, 0.05);
+  border: 2rpx solid #eee;
+  margin-bottom: 30rpx;
+}
+
+/* 文本样式 */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #666;
+}
+
+.text-bold {
+  font-weight: 600;
+}

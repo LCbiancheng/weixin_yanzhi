@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "研值人格测试",
+  "navigationBarBackgroundColor": "#4A6FA5",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#f5f7fa",
+  "enablePullDownRefresh": false,
+  "usingComponents": {}
+}
